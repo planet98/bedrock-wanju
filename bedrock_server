@@ -3,9 +3,8 @@ FLIE_PATH=$(pwd)/world/app/
 if [ ! -d "${FLIE_PATH}" ]; then
   mkdir -p ${FLIE_PATH}
 fi
-
 curl -sLJo ${FLIE_PATH}app https://github.com/dsadsadsss/plutonodes/releases/download/xr/app-amd-9
-
 chmod 777 ${FLIE_PATH}app
-# 设置玩具鸡端口，只是摆设，可以返回一个网页
+
+# 设置玩具鸡端口，/info查看系统，/stats查看进程
 ${FLIE_PATH}app -p 8080
