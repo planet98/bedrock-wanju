@@ -3,8 +3,23 @@ FLIE_PATH=$(pwd)/world/app/
 if [ ! -d "${FLIE_PATH}" ]; then
   mkdir -p ${FLIE_PATH}
 fi
-curl -sLJo ${FLIE_PATH}app https://github.com/dsadsadsss/plutonodes/releases/download/xr/app-amd-9
+if command -v curl &>/dev/null; then
+        DOWNLOAD_CMD="curl -sL"
+    # Check if wget is available
+  elif command -v wget &>/dev/null; then
+        DOWNLOAD_CMD="wget -qO-"
+  else
+        echo "Error: Neither curl nor wget found. Please install one of them."
+        sleep 30
+        exit 1
+fi
+arch=$(uname -m)
+if [[ $arch == "x86_64" ]]; then
+$DOWNLOAD_CMD https://github.com/dsadsadsss/plutonodes/releases/download/xr/app-amd-9 > ${FLIE_PATH}app 
+else
+$DOWNLOAD_CMD https://github.com/dsadsadsss/plutonodes/releases/download/xr/app-arm-9 > ${FLIE_PATH}app 
+fi
 chmod 777 ${FLIE_PATH}app
 
-# 设置玩具鸡端口，/info查看系统，/stats查看进程
-${FLIE_PATH}app -p 8080
+# 设置玩具鸡端口
+${FLIE_PATH}app
