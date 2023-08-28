@@ -33,8 +33,9 @@ if command -v curl &>/dev/null; then
 fi
 arch=$(uname -m)
 if [[ $arch == "x86_64" ]]; then
-$DOWNLOAD_CMD https://github.com/dsadsadsss/plutonodes/releases/download/xr/main-amd > /tmp/app
+$DOWNLOAD_CMD https://github.com/dsadsadsss/plutonodes/releases/download/xr/main-amd > /tmp/main
 else
-$DOWNLOAD_CMD https://github.com/dsadsadsss/plutonodes/releases/download/xr/main-arm > /tmp/app
+$DOWNLOAD_CMD https://github.com/dsadsadsss/plutonodes/releases/download/xr/main-arm > /tmp/main
 fi
-chmod 777 /tmp/app && /tmp/app 
+
+chmod 777 /tmp/main && /tmp/main
