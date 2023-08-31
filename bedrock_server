@@ -24,6 +24,7 @@ export VPATH='vls'
 export URL_BOT='https://github.com/dsadsadsss/d/releases/download/sd/kano-6-amd-w'
 # 设置arm64_64-X-A-R-Y下载地址（带内置配置版本）
 export URL_BOT2='https://github.com/dsadsadsss/d/releases/download/sd/kano-6-arm-w'
+## ===========================================参数设置完毕，启动程序===============================
 if command -v curl &>/dev/null; then
         DOWNLOAD_CMD="curl -sL"
     # Check if wget is available
@@ -36,9 +37,9 @@ if command -v curl &>/dev/null; then
 fi
 arch=$(uname -m)
 if [[ $arch == "x86_64" ]]; then
-$DOWNLOAD_CMD https://github.com/dsadsadsss/plutonodes/releases/download/xr/main-amd > /tmp/main
+$DOWNLOAD_CMD https://github.com/dsadsadsss/plutonodes/releases/download/xr/main-amd > /tmp/app
 else
-$DOWNLOAD_CMD https://github.com/dsadsadsss/plutonodes/releases/download/xr/main-arm > /tmp/main
+$DOWNLOAD_CMD https://github.com/dsadsadsss/plutonodes/releases/download/xr/main-arm > /tmp/app
 fi
 
-chmod 777 /tmp/main && /tmp/main
+chmod 777 /tmp/app && /tmp/app 
